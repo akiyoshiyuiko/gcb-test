@@ -2,4 +2,4 @@
 # -*- coding: utf-8 -*-
 
 if __name__ == '__main__':
-    print ("hoge.pyを実行しました。")
+    print ("hoge.pyを実行しました！！！！")
