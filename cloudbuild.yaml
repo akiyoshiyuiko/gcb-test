@@ -1,10 +1,23 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', ''gcr.io/$PROJECT_ID/hoge-image', '.' ]
-images: ['gcr.io/$PROJECT_ID/hoge-image']
+  args: ['build', '-t', 'gcr.io/pseco-ai/hoge-image', '.']
+images: ['gcr.io/pseco-ai/hoge-image']
+
 
 # imagesフィールドを使用することでビルドが完了した後、Container Registry にイメージを格納できる
 # https://cloud.google.com/build/docs/building/build-containers?hl=ja#store-images
 
 # cloud buildでbuild構成ファイル（cloudbuild.yml）を使用してイメージのビルドとイメージのcontainer registryへの保存
 # https://cloud.google.com/build/docs/building/build-containers?hl=ja
+
+
+# ビルドの実行（手動）
+# gcloud builds submit --config CONFIG_FILE_PATH SOURCE_DIRECTORY
+# CONFIG_FILE_PATH SOURCE_DIRECTORYを指定しないと、カレンとディレクトリにあるものとして実行する
+# つまり、ここで実行する場合は`gcloud builds submit --config cloudbuild.yaml`
+# *sdkが該当のプロジェクトに向いているか確認する
+# プロジェクトIDの確認：`gcloud config get-value project`
+# プロジェクトの初期化：`./google-cloud-sdk/bin/gcloud init`
+
+# イメージの実行（手動）
+# docker run gcr.io/pseco-ai/hoge-image
